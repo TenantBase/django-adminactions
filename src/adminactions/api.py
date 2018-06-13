@@ -61,19 +61,20 @@ def merge(master, other, fields=None, commit=False, m2m=None, related=None):  # 
     """
         Merge 'other' into master.
 
-        `fields` is a list of fieldnames that must be readed from ``other`` to put into master.
-        If ``fields`` is None ``master`` will get all the ``other`` values except primary_key.
+        `fields` is a list of fieldnames that must be read from ``other`` to put into master.
         Finally ``other`` will be deleted and master will be preserved
 
     @param master:  Model instance
     @param other: Model instance
-    @param fields: list of fieldnames to  merge
+    @param commit: bool
+    @param fields: list of fieldnames to merge
     @param m2m: list of m2m fields to merge. If empty will be removed
     @param related: list of related fieldnames to merge. If empty will be removed
     @return:
     """
 
-    fields = fields or [f.name for f in master._meta.fields]
+    # Ensure we have a valid iterable.
+    fields = fields if fields else []
 
     all_m2m = {}
     all_related = {}
