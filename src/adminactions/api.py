@@ -66,8 +66,8 @@ def merge(master, other, fields=None, commit=False, m2m=None, related=None):  # 
 
     @param master:  Model instance
     @param other: Model instance
-    @param commit: bool
     @param fields: list of fieldnames to merge
+    @param commit: bool
     @param m2m: list of m2m fields to merge. If empty will be removed
     @param related: list of related fieldnames to merge. If empty will be removed
     @return:
