@@ -73,7 +73,8 @@ class MergeForm(GenericActionForm):
         js = [
             'admin/js/vendor/jquery/jquery.js',
             'admin/js/jquery.init.js',
-            'adminactions/js/merge.min.js',
+            # Minifying merge.js breaks something; use un-minified instead.
+            'adminactions/js/merge.js',
         ]
         css = {'all': ['adminactions/css/adminactions.min.css']}
 
